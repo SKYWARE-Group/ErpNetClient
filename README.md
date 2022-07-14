@@ -18,5 +18,5 @@ var r = new Receipt()
 };
 var c = new Client() { DeviceId = "abc" };
 var x = await c.PrintFiscalReceipt(r);
-Console.WriteLine($"OK: {x.Ok}, Recipt number: {x.ReceiptNumber}");
+Console.WriteLine($"OK: {x.Ok}, Receipt number: {x.ReceiptNumber}");
 ```
