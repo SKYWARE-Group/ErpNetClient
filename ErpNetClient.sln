@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErpNetClient", "ErpNetClient\ErpNetClient.csproj", "{EB26710C-1514-4BD3-8980-A7B01D2C4F2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{DF1BDD36-E957-4082-B141-37DE2F91CE33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB26710C-1514-4BD3-8980-A7B01D2C4F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB26710C-1514-4BD3-8980-A7B01D2C4F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB26710C-1514-4BD3-8980-A7B01D2C4F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB26710C-1514-4BD3-8980-A7B01D2C4F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1BDD36-E957-4082-B141-37DE2F91CE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1BDD36-E957-4082-B141-37DE2F91CE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1BDD36-E957-4082-B141-37DE2F91CE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1BDD36-E957-4082-B141-37DE2F91CE33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE690FC0-8077-4C61-A9A9-5E8424CF761D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Skyware.ErpNetFS.Client</AssemblyName>
+    <RootNamespace>Skyware.ErpNetFS</RootNamespace>
+    <Authors>Mikhail Kalatchev</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>SKYWARE Group</Company>
+    <Description>.Net Client for ErpNet.FS Fiscal server.</Description>
+    <Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
+    <PackageIcon>erp-net-fs-client.png</PackageIcon>
+    <PackageReadmeFile>erp-net-fp-client-nuget-readme.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Fiscal;Server;API;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL</PackageTags>
+    <AssemblyVersion>0.0.1.0</AssemblyVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\erp-net-fp-client-nuget-readme.md" />
+    <None Remove="Assets\erp-net-fs-client.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\erp-net-fp-client-nuget-readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+    <Content Include="Assets\erp-net-fs-client.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
+  </ItemGroup>
+
+</Project>
