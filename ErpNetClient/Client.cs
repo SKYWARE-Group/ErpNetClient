@@ -29,7 +29,7 @@ namespace Skyware.ErpNetFS
         /// </summary>
         /// <param name="receipt">Receipt</param>
         /// <returns>Receipt status</returns>
-        public async Task<DeviceStatusWithReceiptInfo> PrintFiscalReceipt(Receipt receipt)
+        public async Task<DeviceStatusWithReceiptInfo> PrintFiscalReceiptAsync(Receipt receipt)
         {
             using (var clt = new HttpClient())
             {
@@ -41,7 +41,7 @@ namespace Skyware.ErpNetFS
             }
         }
 
-        private async Task<DeviceStatusWithDateTime> PrintReport(bool closeDay)
+        private async Task<DeviceStatusWithDateTime> PrintReportAsync(bool closeDay)
         {
             using (var clt = new HttpClient())
             {
@@ -57,22 +57,25 @@ namespace Skyware.ErpNetFS
         /// Z Report ends the sales day and can be used for bookkeeping
         /// </summary>
         /// <returns>Device status</returns>
-        public async Task<DeviceStatusWithDateTime> PrintZReport()
+        public async Task<DeviceStatusWithDateTime> PrintZReportAsync()
         {
-            return await PrintReport(true);
+            return await PrintReportAsync(true);
         }
 
         /// <summary>
-        /// X Report shows sales summary
+        /// X Report prints sales summary (without closing the fiscal day)
         /// </summary>
         /// <returns>Device status</returns>
-        public async Task<DeviceStatusWithDateTime> PrintXReport()
+        public async Task<DeviceStatusWithDateTime> PrintXReportAsync()
         {
-            return await PrintReport(false);
+            return await PrintReportAsync(false);
         }
 
-
-        public async Task<Dictionary<string, DeviceInfo>> GetPrinters()
+        /// <summary>
+        /// Retreives list of configured printers
+        /// </summary>
+        /// <returns>List of configured printers</returns>
+        public async Task<Dictionary<string, DeviceInfo>> GetPrintersAsync()
         {
             using (var clt = new HttpClient())
             {
@@ -83,7 +86,12 @@ namespace Skyware.ErpNetFS
             }
         }
 
-        public async Task<DeviceStatusWithDateTime> GetPrinterStatus(string deviceId = null)
+        /// <summary>
+        /// Retreives printer status
+        /// </summary>
+        /// <param name="deviceId">Id of the printer</param>
+        /// <returns>The status</returns>
+        public async Task<DeviceStatusWithDateTime> GetPrinterStatusAsync(string deviceId = null)
         {
             using (var clt = new HttpClient())
             {

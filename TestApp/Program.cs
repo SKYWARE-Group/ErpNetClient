@@ -31,8 +31,8 @@ namespace TestApp
                     new Payment() { Amount = 1, PaymentType = PaymentType.Cash }
                 }
             };
-            var c = new Client() { DeviceId = "abc" };
-            var x = await c.PrintFiscalReceipt(r);
+            var c = new Client() { DeviceId = "dt577460" };
+            var x = await c.PrintFiscalReceiptAsync(r);
             Console.WriteLine($"OK: {x.Ok}, Receipt number: {x.ReceiptNumber}");
 
             //var c = new Client() { DeviceId = "abc" };
