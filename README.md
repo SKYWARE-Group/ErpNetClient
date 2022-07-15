@@ -17,7 +17,7 @@ var r = new Receipt()
     }
 };
 var c = new Client() { DeviceId = "abc" };
-var x = await c.PrintFiscalReceipt(r);
+var x = await c.PrintFiscalReceiptAsync(r);
 Console.WriteLine($"OK: {x.Ok}, Receipt number: {x.ReceiptNumber}");
 ```
 
