@@ -25,10 +25,10 @@ namespace TestApp
                 Operator = "1",
                 OperatorPassword = "1",
                 Items = new Item[] {
-                    new Item() { Text = ".Net library", Amount = 1, UnitPrice = 1, Quantity = 1, TaxGroup = TaxGroup.TaxGroup1}
+                    new Item() { Text = "LIS iLab", Amount = 1, UnitPrice = 0.01m, Quantity = 1, TaxGroup = TaxGroup.TaxGroup1}
                 },
                 Payments = new Payment[] {
-                    new Payment() { Amount = 1, PaymentType = PaymentType.Cash }
+                    new Payment() { Amount = 0.01m, PaymentType = PaymentType.Cash }
                 }
             };
             var c = new Client() { DeviceId = "dt577460" };
