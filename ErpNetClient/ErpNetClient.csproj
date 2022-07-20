@@ -12,11 +12,10 @@
     <PackageIcon>erp-net-fs-client.png</PackageIcon>
     <PackageReadmeFile>erp-net-fp-client-nuget-readme.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;IS;SKYWARE GroupL</PackageTags>
-    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL;SKYWARE Group;ErpNet.FS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ErpNetClient</RepositoryUrl>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

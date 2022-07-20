@@ -41,6 +41,23 @@ namespace Skyware.ErpNetFS
             }
         }
 
+        /// <summary>
+        /// Register refund
+        /// </summary>
+        /// <param name="receipt">Receipt</param>
+        /// <returns>Receipt status</returns>
+        public async Task<DeviceStatusWithReceiptInfo> PrintRefundReceiptAsync(ReversalReceipt receipt)
+        {
+            using (var clt = new HttpClient())
+            {
+                StringContent cont = new StringContent(JsonSerializer.Serialize<ReversalReceipt>(receipt, serializeOptions), Encoding.UTF8, "application/json");
+                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await clt.PostAsync(new Uri($"{BaseUrl}printers/{this.DeviceId}/reversalreceipt"), cont);
+                string resStr = await res.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<DeviceStatusWithReceiptInfo>(resStr, serializeOptions);
+            }
+        }
+
         private async Task<DeviceStatusWithDateTime> PrintReportAsync(bool closeDay)
         {
             using (var clt = new HttpClient())

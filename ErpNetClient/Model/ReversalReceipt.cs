@@ -25,7 +25,7 @@ namespace Skyware.ErpNetFS.Model
     }
 
     /// <summary>
-    /// Represents one Receipt, which can be printed on a fiscal printer.
+    /// Represents refund receipt, which can be printed on a fiscal printer.
     /// </summary>
     public class ReversalReceipt : Receipt
     {
