@@ -62,9 +62,9 @@ namespace TestApp
             //Console.WriteLine($"OK: {x.Ok}");
 
             var c = new Client() { DeviceId = "dt937256" };
-            var res = await c.SendRawRequest(new RawRequest() { Request = "P800\t200\t" });
-            res = await c.SendRawRequest(new RawRequest() { Request = "P1200\t200\t" });
-            res = await c.SendRawRequest(new RawRequest() { Request = "P1800\t200\t" });
+            var res = await c.SendRawRequestAsync(new RawRequest() { Request = "P800\t200\t" });
+            res = await c.SendRawRequestAsync(new RawRequest() { Request = "P1200\t200\t" });
+            res = await c.SendRawRequestAsync(new RawRequest() { Request = "P1800\t200\t" });
             Console.WriteLine($"OK: {res.Ok}");
         }
 

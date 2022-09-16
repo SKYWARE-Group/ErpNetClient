@@ -120,11 +120,11 @@ namespace Skyware.ErpNetFS
         }
 
         /// <summary>
-        /// Register sale
+        /// Sends raw requests to the printer
         /// </summary>
-        /// <param name="receipt">Receipt</param>
-        /// <returns>Receipt status</returns>
-        public async Task<DeviceStatusWithReceiptInfo> SendRawRequest(RawRequest request)
+        /// <param name="request"><see cref="RawRequest"/> to be sent.</param>
+        /// <returns>Device status status</returns>
+        public async Task<DeviceStatusWithDateTime> SendRawRequestAsync(RawRequest request)
         {
             using (var clt = new HttpClient())
             {
@@ -132,7 +132,7 @@ namespace Skyware.ErpNetFS
                 clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage res = await clt.PostAsync(new Uri($"{BaseUrl}printers/{this.DeviceId}/rawrequest"), cont);
                 string resStr = await res.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<DeviceStatusWithReceiptInfo>(resStr, serializeOptions);
+                return JsonSerializer.Deserialize<DeviceStatusWithDateTime>(resStr, serializeOptions);
             }
         }
 
