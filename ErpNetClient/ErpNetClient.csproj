@@ -15,7 +15,7 @@
     <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL;SKYWARE Group;ErpNet.FS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ErpNetClient</RepositoryUrl>
-    <Version>0.3.2</Version>
+    <Version>0.3.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

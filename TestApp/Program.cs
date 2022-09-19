@@ -63,9 +63,12 @@ namespace TestApp
 
             var c = new Client() { DeviceId = "dt937256" };
             var res = await c.SendRawRequestAsync(new RawRequest() { Request = "P800\t200\t" });
-            res = await c.SendRawRequestAsync(new RawRequest() { Request = "P1200\t200\t" });
-            res = await c.SendRawRequestAsync(new RawRequest() { Request = "P1800\t200\t" });
             Console.WriteLine($"OK: {res.Ok}");
+
+            var res2 = await c.GetPrinterInfoAsync();
+            Console.WriteLine($"URI: {res2.Uri}");
+
+
         }
 
     }

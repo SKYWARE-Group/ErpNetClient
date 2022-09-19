@@ -24,6 +24,75 @@ namespace Skyware.ErpNetFS
 
         public string DeviceId  { get; set; } = string.Empty;
 
+        
+
+        /// <summary>
+        /// Retreives list of configured printers
+        /// </summary>
+        /// <returns>List of configured printers</returns>
+        public async Task<Dictionary<string, DeviceInfo>> GetPrintersAsync()
+        {
+            using (var clt = new HttpClient())
+            {
+                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await clt.GetAsync(new Uri($"{BaseUrl}printers"));
+                string resStr = await res.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<Dictionary<string, DeviceInfo>>(resStr, serializeOptions);
+            }
+        }
+
+        /// <summary>
+        /// Retreives printer information - model, uri, etc.
+        /// </summary>
+        /// <param name="deviceId">Id of the printer</param>
+        /// <returns>Infomation for the device</returns>
+        public async Task<DeviceInfo> GetPrinterInfoAsync(string deviceId = null)
+        {
+            using (var clt = new HttpClient())
+            {
+                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await clt.GetAsync(new Uri($"{BaseUrl}printers/{(string.IsNullOrWhiteSpace(deviceId) ? this.DeviceId : deviceId)}"));
+                string resStr = await res.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<DeviceInfo>(resStr, serializeOptions);
+            }
+        }
+
+        /// <summary>
+        /// Retreives printer status
+        /// </summary>
+        /// <param name="deviceId">Id of the printer</param>
+        /// <returns>Device status</returns>
+        public async Task<DeviceStatusWithDateTime> GetPrinterStatusAsync(string deviceId = null)
+        {
+            using (var clt = new HttpClient())
+            {
+                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await clt.GetAsync(new Uri($"{BaseUrl}printers/{(string.IsNullOrWhiteSpace(deviceId) ? this.DeviceId : deviceId)}/status"));
+                string resStr = await res.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<DeviceStatusWithDateTime>(resStr, serializeOptions);
+            }
+        }
+
+        // Get {id}/cash 
+        // GET taskinfo : TaskInfoResult
+
+        /// <summary>
+        /// Sends raw requests to the printer
+        /// </summary>
+        /// <param name="request"><see cref="RawRequest"/> to be sent.</param>
+        /// <returns>Device status with raw response</returns>
+        public async Task<DeviceStatusWithRawResponse> SendRawRequestAsync(RawRequest request)
+        {
+            using (var clt = new HttpClient())
+            {
+                StringContent cont = new StringContent(JsonSerializer.Serialize<RawRequest>(request, serializeOptions), Encoding.UTF8, "application/json");
+                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await clt.PostAsync(new Uri($"{BaseUrl}printers/{this.DeviceId}/rawrequest"), cont);
+                string resStr = await res.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<DeviceStatusWithRawResponse>(resStr, serializeOptions);
+            }
+        }
+
         /// <summary>
         /// Register sale
         /// </summary>
@@ -58,17 +127,9 @@ namespace Skyware.ErpNetFS
             }
         }
 
-        private async Task<DeviceStatusWithDateTime> PrintReportAsync(bool closeDay)
-        {
-            using (var clt = new HttpClient())
-            {
-                StringContent cont = new StringContent(String.Empty, Encoding.UTF8, "application/json");
-                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await clt.PostAsync(new Uri($"{BaseUrl}printers/{this.DeviceId}/{(closeDay ? "zreport" : "xreport")}"), cont);
-                string resStr = await res.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<DeviceStatusWithDateTime>(resStr, serializeOptions);
-            }
-        }
+        // POST {id}/withdraw
+        // POST {id}/deposit
+        // POST {id}/datetime
 
         /// <summary>
         /// Z Report ends the sales day and can be used for bookkeeping
@@ -88,49 +149,21 @@ namespace Skyware.ErpNetFS
             return await PrintReportAsync(false);
         }
 
-        /// <summary>
-        /// Retreives list of configured printers
-        /// </summary>
-        /// <returns>List of configured printers</returns>
-        public async Task<Dictionary<string, DeviceInfo>> GetPrintersAsync()
-        {
-            using (var clt = new HttpClient())
-            {
-                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await clt.GetAsync(new Uri($"{BaseUrl}printers"));
-                string resStr = await res.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<Dictionary<string, DeviceInfo>>(resStr, serializeOptions);
-            }
-        }
+        // POST {id}/duplicate
+        // POST {id}/reset
 
         /// <summary>
-        /// Retreives printer status
+        /// Base function (to wrap it)
         /// </summary>
-        /// <param name="deviceId">Id of the printer</param>
-        /// <returns>The status</returns>
-        public async Task<DeviceStatusWithDateTime> GetPrinterStatusAsync(string deviceId = null)
+        /// <param name="closeDay"></param>
+        /// <returns></returns>
+        private async Task<DeviceStatusWithDateTime> PrintReportAsync(bool closeDay)
         {
             using (var clt = new HttpClient())
             {
+                StringContent cont = new StringContent(String.Empty, Encoding.UTF8, "application/json");
                 clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await clt.GetAsync(new Uri($"{BaseUrl}printers/{(string.IsNullOrWhiteSpace(deviceId) ? this.DeviceId : deviceId)}/status"));
-                string resStr = await res.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<DeviceStatusWithDateTime>(resStr, serializeOptions);
-            }
-        }
-
-        /// <summary>
-        /// Sends raw requests to the printer
-        /// </summary>
-        /// <param name="request"><see cref="RawRequest"/> to be sent.</param>
-        /// <returns>Device status status</returns>
-        public async Task<DeviceStatusWithDateTime> SendRawRequestAsync(RawRequest request)
-        {
-            using (var clt = new HttpClient())
-            {
-                StringContent cont = new StringContent(JsonSerializer.Serialize<RawRequest>(request, serializeOptions), Encoding.UTF8, "application/json");
-                clt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage res = await clt.PostAsync(new Uri($"{BaseUrl}printers/{this.DeviceId}/rawrequest"), cont);
+                HttpResponseMessage res = await clt.PostAsync(new Uri($"{BaseUrl}printers/{this.DeviceId}/{(closeDay ? "zreport" : "xreport")}"), cont);
                 string resStr = await res.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<DeviceStatusWithDateTime>(resStr, serializeOptions);
             }
