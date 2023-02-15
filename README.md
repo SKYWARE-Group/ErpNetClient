@@ -1,6 +1,6 @@
 # <img src="https://github.com/SKYWARE-Group/ErpNetClient/blob/master/ErpNetClient/Assets/erp-net-fs-client.png" width="48" height="48"/> ErpNetClient
 
-This project is a client library for interaction with [ErpNet.FP fiscal server](https://github.com/erpnet/ErpNet.FP). It encapsulates both data model and http invokations.
+This project is a client library for interaction with [ErpNet.FP fiscal server](https://github.com/erpnet/ErpNet.FP). It encapsulates both data model and http invocations.
 
 ## Getting started
 
