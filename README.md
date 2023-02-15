@@ -2,6 +2,9 @@
 
 This project is a client library for interaction with [ErpNet.FP fiscal server](https://github.com/erpnet/ErpNet.FP). It encapsulates both data model and http invocations.
 
+[![Nuget Badge](https://img.shields.io/nuget/v/Skyware.ErpNetFS.Client)](https://www.nuget.org/packages/Skyware.ErpNetFS.Client)
+[![.NET](https://github.com/SKYWARE-Group/ErpNetClient/actions/workflows/dotnet.yml/badge.svg)](https://github.com/SKYWARE-Group/ErpNetClient/actions/workflows/dotnet.yml)
+
 ## Getting started
 
 ```c#
