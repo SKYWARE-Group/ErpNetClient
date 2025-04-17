@@ -1,7 +1,8 @@
-﻿using Skyware.ErpNetFS.Model;
+﻿// Ignore Spelling: taskinfo rawrequest reversalreceipt Erp
+
+using Skyware.ErpNetFS.Model;
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Skyware.ErpNetFS
     public class Client
     {
 
-        private static JsonSerializerOptions serializeOptions = new JsonSerializerOptions
+        private static readonly JsonSerializerOptions serializeOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true
@@ -22,12 +23,12 @@ namespace Skyware.ErpNetFS
 
         public string BaseUrl { get; set; } = "http://localhost:8001/";
 
-        public string DeviceId  { get; set; } = string.Empty;
+        public string DeviceId { get; set; } = string.Empty;
 
-        
+
 
         /// <summary>
-        /// Retreives list of configured printers
+        /// Retrieves list of configured printers
         /// </summary>
         /// <returns>List of configured printers</returns>
         public async Task<Dictionary<string, DeviceInfo>> GetPrintersAsync()
@@ -42,10 +43,10 @@ namespace Skyware.ErpNetFS
         }
 
         /// <summary>
-        /// Retreives printer information - model, uri, etc.
+        /// Retrieves printer information - model, uri, etc.
         /// </summary>
         /// <param name="deviceId">Id of the printer</param>
-        /// <returns>Infomation for the device</returns>
+        /// <returns>Information for the device</returns>
         public async Task<DeviceInfo> GetPrinterInfoAsync(string deviceId = null)
         {
             using (var clt = new HttpClient())
@@ -58,7 +59,7 @@ namespace Skyware.ErpNetFS
         }
 
         /// <summary>
-        /// Retreives printer status
+        /// Retrieves printer status
         /// </summary>
         /// <param name="deviceId">Id of the printer</param>
         /// <returns>Device status</returns>
