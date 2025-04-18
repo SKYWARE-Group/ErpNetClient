@@ -21,6 +21,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Assets\erp-net-fp-client-nuget-readme.md">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </Content>
+    <Content Include="Assets\erp-net-fs-client.png">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="9.0.4" />
   </ItemGroup>
 

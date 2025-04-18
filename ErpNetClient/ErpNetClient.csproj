@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>13.0</LangVersion>
     <AssemblyName>Skyware.ErpNetFS.Client</AssemblyName>
     <RootNamespace>Skyware.ErpNetFS</RootNamespace>
     <Authors>Mikhail Kalatchev</Authors>
@@ -15,7 +16,7 @@
     <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL;SKYWARE Group;ErpNet.FS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ErpNetClient</RepositoryUrl>
-    <Version>0.3.3</Version>
+    <Version>0.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +36,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="6.0.6" />
+    <PackageReference Include="System.Text.Json" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ErpNetFsModel\ErpNetFsModel.csproj" />
   </ItemGroup>
 
 </Project>
