@@ -1,5 +1,8 @@
 ﻿namespace Skyware.ErpNetFS.Model;
 
+/// <summary>
+/// Represents credentials for the operator.
+/// </summary>
 public class Credentials
 {
 

@@ -4,7 +4,7 @@ namespace Skyware.ErpNetFS.Model;
 
 
 /// <summary>
-/// Represent raw request (comand+data) to be sent to the fiscal printer
+/// Represent raw request (command+data) to be sent to the fiscal printer
 /// </summary>
 public class RawRequest
 {

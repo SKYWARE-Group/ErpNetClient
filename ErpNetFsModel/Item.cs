@@ -6,6 +6,7 @@ namespace Skyware.ErpNetFS.Model;
 
 public enum ItemType
 {
+
     [EnumMember(Value = "sale")]
     Sale,
 
@@ -20,6 +21,7 @@ public enum ItemType
 
     [EnumMember(Value = "discount-amount")]
     DiscountAmount
+
 }
 
 /// <summary>
@@ -27,6 +29,7 @@ public enum ItemType
 /// </summary>
 public enum PriceModifierType
 {
+
     /// <summary>
     /// There is no Price Modifier, so Price Modifier Value must be 0.
     /// </summary>
@@ -56,6 +59,7 @@ public enum PriceModifierType
     /// </summary>
     [EnumMember(Value = "surcharge-amount")]
     SurchargeAmount = 4
+
 }
 
 public enum TaxGroup

@@ -1,7 +1,7 @@
 ﻿namespace Skyware.ErpNetFS.Model;
 
 /// <summary>
-/// RawRequest 
+/// Raw Request. 
 /// </summary>
 public class RequestFrame
 {

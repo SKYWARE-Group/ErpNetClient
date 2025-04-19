@@ -10,100 +10,63 @@ public enum StatusMessageType
 {
     [EnumMember(Value = "")]
     Unknown,
+
     [EnumMember(Value = "reserved")]
     Reserved,
+
     [EnumMember(Value = "info")]
     Info,
+
     [EnumMember(Value = "warning")]
     Warning,
+
     [EnumMember(Value = "error")]
     Error
 }
 
 public class StatusMessage
 {
+
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public StatusMessageType Type { get; set; } = StatusMessageType.Unknown;
 
-    /* Error and Warning Codes are strings with length of 5 characters.
-    First 3 characters are the type of the error, i.e., ERR, WRN.
-    Next 2 characters are digits, representing the ID of the error or warning. */
+    // Error and Warning Codes are strings with length of 5 characters.
+    // First 3 characters are the type of the error, i.e., ERR, WRN.
+    // Next 2 characters are digits, representing the ID of the error or warning. 
+
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string Code { get; set; }
+
     public string Text { get; set; } = string.Empty;
+
 }
 
-//public class DeviceStatus
-//{
-//    public bool Ok { get; protected set; } = true;
-//    public IList<StatusMessage> Messages { get; protected set; } = new List<StatusMessage>();
+public class DeviceStatus
+{
 
-//    public void AddMessage(StatusMessage statusMessage)
-//    {
-//        if (statusMessage.Type == StatusMessageType.Unknown)
-//        {
-//            throw new ArgumentException("status message type cannot be unknown");
-//        }
-//        if (statusMessage.Type == StatusMessageType.Reserved)
-//        {
-//            // Ignore reserved messages
-//            return;
-//        }
-//        if (statusMessage.Type == StatusMessageType.Error)
-//        {
-//            Ok = false;
-//        }
-//        if (string.IsNullOrEmpty(statusMessage.Code))
-//        {
-//            statusMessage.Code = null;
-//        }
-//        Messages.Add(statusMessage);
-//    }
+    public bool Ok { get; protected set; } = true;
 
-//    public void AddInfo(string text)
-//    {
-//        AddMessage(new StatusMessage
-//        {
-//            Type = StatusMessageType.Info,
-//            Text = text
-//        });
-//    }
+    public IList<StatusMessage> Messages { get; protected set; } = [];
 
-//    public void AddError(string code, string text)
-//    {
-//        AddMessage(new StatusMessage
-//        {
-//            Type = StatusMessageType.Error,
-//            Code = code,
-//            Text = text
-//        });
-//    }
-
-//    public void AddWarning(string code, string text)
-//    {
-//        AddMessage(new StatusMessage
-//        {
-//            Type = StatusMessageType.Warning,
-//            Code = code,
-//            Text = text
-//        });
-//    }
-//}
+}
 
 public class DeviceStatusWithDateTime
 {
 
     public bool Ok { get; protected set; } = true;
-    public IList<StatusMessage> Messages { get; protected set; } = new List<StatusMessage>();
+
+    public IList<StatusMessage> Messages { get; protected set; } = [];
 
     public DateTime DeviceDateTime { get; set; }
 
 }
+
 public class DeviceStatusWithRawResponse 
 {
 
     public bool Ok { get; protected set; } = true;
-    public IList<StatusMessage> Messages { get; protected set; } = new List<StatusMessage>();
+
+    public IList<StatusMessage> Messages { get; protected set; } = [];
 
     public string RawResponse { get; set; } = string.Empty;
 
@@ -112,7 +75,8 @@ public class DeviceStatusWithRawResponse
 public class DeviceStatusWithCashAmount 
 {
     public bool Ok { get; protected set; } = true;
-    public IList<StatusMessage> Messages { get; protected set; } = new List<StatusMessage>();
+
+    public IList<StatusMessage> Messages { get; protected set; } = [];
 
     public decimal Amount { get; set; }
 
@@ -122,7 +86,7 @@ public class DeviceStatusWithReceiptInfo
 {
     public bool Ok { get; set; } = false;
 
-    public IList<StatusMessage> Messages { get; set; } = new List<StatusMessage>();
+    public IList<StatusMessage> Messages { get; set; } = [];
 
     /// <summary>
     /// The receipt number.

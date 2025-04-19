@@ -21,6 +21,7 @@ namespace Skyware.ErpNetFS.Model;
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum PaymentType
 {
+
     [EnumMember(Value = "")]
     Unspecified = 0,
 

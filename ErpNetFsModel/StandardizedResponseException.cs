@@ -6,6 +6,7 @@ namespace Skyware.ErpNetFS.Model;
 [Serializable]
 public class StandardizedStatusMessageException : Exception
 {
+
     public string Code = string.Empty;
 
     public StatusMessageType Type = StatusMessageType.Error;
