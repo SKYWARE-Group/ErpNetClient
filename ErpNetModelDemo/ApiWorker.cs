@@ -16,6 +16,19 @@ public class ApiWorker
     private static readonly IFiscalPrinterClient refitClient = RestService.For<IFiscalPrinterClient>("http://localhost:8001/");
     private static readonly Skyware.ErpNetFS.Client ownClient = new("http://localhost:8001/");
 
+    public static async Task PrintServerVariables()
+    {
+        ServerVariables sv = useRefit
+            ? await refitClient.GetServerVariablesAsync()
+            : await ownClient.GetServerVariables();
+
+        AnsiConsole.MarkupLine($"Version: [chartreuse3_1]{sv.Version}[/]");
+        AnsiConsole.MarkupLine($"Server ID: [chartreuse3_1]{sv.ServerId}[/]");
+        AnsiConsole.MarkupLine($"Auto detect: [chartreuse3_1]{sv.AutoDetect}[/]");
+        AnsiConsole.MarkupLine($"Udp beacon Port: [chartreuse3_1]{sv.UdpBeaconPort}[/]");
+        AnsiConsole.MarkupLine($"Exclude port list: [chartreuse3_1]{sv.ExcludePortList}[/]");
+    }
+
     public static async Task<Dictionary<string, DeviceInfo>> GetPrintersAsync()
     {
         return useRefit

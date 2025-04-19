@@ -1,10 +1,11 @@
-﻿using Refit;
-using Skyware.ErpNetFS.Model;
+﻿# ErpNet.FS fiscal server data model
 
-namespace ErpNetModelDemo;
+This library is a data model used in [ErpNet.FP](https://github.com/erpnet/ErpNet.FP) fiscal server.
+You may use it to create your own client implementation with well-known REST client libraries such as [Refit](https://github.com/reactiveui/refit).
 
-// Ignore Spelling: rawrequest reversalreceipt xreport zreport tremol
+Here is the example implementation of the client:
 
+```csharp
 /// <summary>
 /// Interface for the ErpNet.FS client.
 /// </summary>
@@ -121,3 +122,4 @@ public interface IFiscalPrinterClient
     Task<DeviceStatus> SentPrinterTimeAsync(string deviceId, CurrentDateTime currentTime);
 
 }
+```

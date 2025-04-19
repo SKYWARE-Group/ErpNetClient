@@ -15,6 +15,7 @@ Dictionary<string, string> actions = new()
     { "CB", "Get cash balance" },
     { "XR", "Print X report" },
     { "ZR", "Print Z report (end of the day)" },
+    { "SV", "Print server variables" },
     { "Q", "Exit" }
 };
 
@@ -74,9 +75,9 @@ do
         case "DT":
             await ApiWorker.SetDate(printerKey);
             break;
-        //case "RR":
-        //    await Units.RawRequest(fiscalPrinterClient, printerKey);
-        //    break;
+        case "RR":
+            AnsiConsole.MarkupLine("Not implemented in demo app.");
+            break;
         case "CD":
             await ApiWorker.PrintDeposit(printerKey);
             break;
@@ -91,6 +92,9 @@ do
             break;
         case "ZR":
             await ApiWorker.PrintReport(printerKey, true);
+            break;
+        case "SV":
+            await ApiWorker.PrintServerVariables();
             break;
         default:
             break;

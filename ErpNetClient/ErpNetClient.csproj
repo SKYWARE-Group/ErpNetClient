@@ -7,25 +7,27 @@
     <RootNamespace>Skyware.ErpNetFS</RootNamespace>
     <Authors>Mikhail Kalatchev</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Product>ErpNet.FS Client</Product>
     <Company>SKYWARE Group</Company>
-    <Description>.Net Client for ErpNet.FS Fiscal server.</Description>
-    <Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
+    <Description>ErpNet.FS client implementation.</Description>
+    <Copyright>Copyright (C) 2022-2025, SKYWARE Group</Copyright>
     <PackageIcon>erp-net-fs-client.png</PackageIcon>
-    <PackageReadmeFile>erp-net-fp-client-nuget-readme.md</PackageReadmeFile>
+    <PackageReadmeFile>erp-net-fp-client-readme.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL;SKYWARE Group;ErpNet.FS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ErpNetClient</RepositoryUrl>
     <Version>0.4.0</Version>
+    <PackageProjectUrl>https://github.com/SKYWARE-Group/ErpNetClient</PackageProjectUrl>
+    <Title>ErpNet.FS Client</Title>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\erp-net-fp-client-nuget-readme.md" />
     <None Remove="Assets\erp-net-fs-client.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Assets\erp-net-fp-client-nuget-readme.md">
+    <Content Include="Assets\erp-net-fp-client-readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </Content>

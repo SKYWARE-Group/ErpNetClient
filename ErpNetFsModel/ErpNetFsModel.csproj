@@ -7,21 +7,23 @@
     <RootNamespace>Skyware.ErpNetFS.Model</RootNamespace>
     <Authors>Mikhail Kalatchev</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Product>ErpNet.FS Fiscal server model</Product>
+    <Product>ErpNet.FS Data Model</Product>
     <Description>Data Model for ErpNet.FS Fiscal server.</Description>
     <Company>SKYWARE Group</Company>
     <Copyright>Copyright (C) 2022-2025, SKYWARE Group</Copyright>
     <PackageIcon>erp-net-fs-client.png</PackageIcon>
-    <PackageReadmeFile>erp-net-fp-client-nuget-readme.md</PackageReadmeFile>
+    <PackageReadmeFile>erp-net-fp-model-readme.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL;SKYWARE Group;ErpNet.FS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ErpNetClient</RepositoryUrl>
     <Version>0.4.0</Version>
+    <PackageProjectUrl>https://github.com/SKYWARE-Group/ErpNetClient</PackageProjectUrl>
+    <Title>ErpNet.FS Data Model</Title>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Assets\erp-net-fp-client-nuget-readme.md">
+    <Content Include="Assets\erp-net-fp-model-readme.md">
       <PackagePath>\</PackagePath>
       <Pack>True</Pack>
     </Content>

@@ -63,6 +63,17 @@ public class Client : IDisposable
     }
 
     /// <summary>
+    /// Retrieves server variables.
+    /// </summary>
+    /// <returns>Server variables (<see cref="ServerVariables"></see>)</returns>
+    /// <exception cref="ObjectDisposedException">Thrown if the client has been disposed</exception>
+    public Task<ServerVariables> GetServerVariables()
+    {
+        ThrowIfDisposed();
+        return SendGetRequestAsync<ServerVariables>(BuildUrl("service", "vars"));
+    }
+
+    /// <summary>
     /// Retrieves list of all configured printers in the ErpNet.FS service.
     /// </summary>
     /// <returns>Dictionary of printer IDs and their corresponding device information</returns>
