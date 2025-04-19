@@ -3,48 +3,38 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>13.0</LangVersion>
-    <AssemblyName>Skyware.ErpNetFS.Client</AssemblyName>
-    <RootNamespace>Skyware.ErpNetFS</RootNamespace>
+    <AssemblyName>Skyware.ErpNetFS.Model</AssemblyName>
+    <RootNamespace>Skyware.ErpNetFS.Model</RootNamespace>
     <Authors>Mikhail Kalatchev</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Product>ErpNet.FS Client</Product>
+    <Product>ErpNet.FS Data Model</Product>
+    <Description>Data Model for ErpNet.FS Fiscal server.</Description>
     <Company>SKYWARE Group</Company>
-    <Description>ErpNet.FS client implementation.</Description>
     <Copyright>Copyright (C) 2022-2025, SKYWARE Group</Copyright>
     <PackageIcon>erp-net-fs-client.png</PackageIcon>
-    <PackageReadmeFile>erp-net-fp-client-readme.md</PackageReadmeFile>
+    <PackageReadmeFile>erp-net-fp-model-readme.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Fiscal server;Datecs;Tremol;Daisy;Eltrade;Incotex;ISL;SKYWARE Group;ErpNet.FS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ErpNetClient</RepositoryUrl>
     <Version>0.4.0</Version>
     <PackageProjectUrl>https://github.com/SKYWARE-Group/ErpNetClient</PackageProjectUrl>
-    <Title>ErpNet.FS Client</Title>
+    <Title>ErpNet.FS Data Model</Title>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\erp-net-fs-client.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Assets\erp-net-fp-client-readme.md">
-      <Pack>True</Pack>
+    <Content Include="Assets\erp-net-fp-model-readme.md">
       <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
     </Content>
     <Content Include="Assets\erp-net-fs-client.png">
-      <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Flurl" Version="4.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.4" />
     <PackageReference Include="System.Text.Json" Version="9.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ErpNetFsModel\ErpNetFsModel.csproj" />
   </ItemGroup>
 
 </Project>
