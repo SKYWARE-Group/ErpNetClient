@@ -2,7 +2,6 @@
 
 namespace Skyware.ErpNetFS.Model;
 
-
 /// <summary>
 /// Represents one Receipt, which can be printed on a fiscal printer.
 /// </summary>

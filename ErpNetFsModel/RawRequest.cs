@@ -9,6 +9,9 @@ namespace Skyware.ErpNetFS.Model;
 public class RawRequest
 {
 
+    /// <summary>
+    /// The raw command to be sent to the fiscal printer.
+    /// </summary>
     [JsonPropertyName("rawRequest")]
     public string Request { get; set; }
 
