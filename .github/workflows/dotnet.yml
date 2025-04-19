@@ -30,13 +30,15 @@ jobs:
         dotnet-version: 9.0.x
     - name: Restore dependencies
       run: |
-        dotnet restore Iris.DriverModel/Iris.DriverModel.csproj
-        dotnet restore Iris.Drivers/Iris.Drivers.csproj
+        dotnet restore ErpNetFsModel/ErpNetFsModel.csproj
+        dotnet restore ErpNetClient/ErpNetClient.csproj
+        dotnet restore ErpNetModelDemoErpNetModelDemo.csproj
     - name: Build
       run: |
         # List projects explicitly, excluding the one you don't want
-        dotnet build Iris.DriverModel/Iris.DriverModel.csproj -c Release
-        dotnet build Iris.Drivers/Iris.Drivers.csproj -c Release
+        dotnet build ErpNetFsModel/ErpNetFsModel.csproj -c Release
+        dotnet build ErpNetClient/ErpNetClient.csproj -c Release
+        dotnet build ErpNetModelDemoErpNetModelDemo.csproj -c Release
 #    - name: Test
 #      run: dotnet test --no-build --verbosity normal
 
