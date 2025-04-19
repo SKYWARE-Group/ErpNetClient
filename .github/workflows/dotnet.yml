@@ -32,13 +32,13 @@ jobs:
       run: |
         dotnet restore ErpNetFsModel/ErpNetFsModel.csproj
         dotnet restore ErpNetClient/ErpNetClient.csproj
-        dotnet restore ErpNetModelDemoErpNetModelDemo.csproj
+        dotnet restore ErpNetModelDemo/ErpNetModelDemo.csproj
     - name: Build
       run: |
         # List projects explicitly, excluding the one you don't want
         dotnet build ErpNetFsModel/ErpNetFsModel.csproj -c Release
         dotnet build ErpNetClient/ErpNetClient.csproj -c Release
-        dotnet build ErpNetModelDemoErpNetModelDemo.csproj -c Release
+        dotnet build ErpNetModelDemo/ErpNetModelDemo.csproj -c Release
 #    - name: Test
 #      run: dotnet test --no-build --verbosity normal
 
