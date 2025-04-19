@@ -2,26 +2,15 @@
 
 This project is a client library for interaction with [ErpNet.FP fiscal server](https://github.com/erpnet/ErpNet.FP). It encapsulates both data model and http invocations.
 
-[![Nuget Badge](https://img.shields.io/nuget/v/Skyware.ErpNetFS.Client)](https://www.nuget.org/packages/Skyware.ErpNetFS.Client)
+![NuGet Version](https://img.shields.io/nuget/v/Skyware.ErpNetFS.Model?label=Skyware.ErpNetFS.Model&color=green)
+![NuGet Version](https://img.shields.io/nuget/v/Skyware.ErpNetFS.Client?label=Skyware.ErpNetFS.Client&color=green)
 [![.NET](https://github.com/SKYWARE-Group/ErpNetClient/actions/workflows/dotnet.yml/badge.svg)](https://github.com/SKYWARE-Group/ErpNetClient/actions/workflows/dotnet.yml)
 
 ## Getting started
 
 ```c#
-var r = new Receipt()
-{
-    Operator = "1",
-    OperatorPassword = "1",
-    Items = new Item[] {
-        new Item() { Text = ".Net library", Amount = 1, UnitPrice = 1, Quantity = 1, TaxGroup = TaxGroup.TaxGroup1}
-    },
-    Payments = new Payment[] {
-        new Payment() { Amount = 1, PaymentType = PaymentType.Cash }
-    }
-};
-var c = new Client() { DeviceId = "abc" };
-var x = await c.PrintFiscalReceiptAsync(r);
-Console.WriteLine($"OK: {x.Ok}, Receipt number: {x.ReceiptNumber}");
+Skyware.ErpNetFS.Client client = new("http://localhost:8001/");
+var printers = await client.GetPrintersAsync();
 ```
 
 ## CLI usage of the server
